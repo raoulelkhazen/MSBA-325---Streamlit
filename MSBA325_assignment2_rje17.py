@@ -13,6 +13,18 @@ st.set_page_config(layout="wide")
 
 st.title('Hotel Reservation Cancelation')
 
+
+def season(x):
+    if x in ['December','January','February']:
+        return "Winter"
+    if x in['March','April','May']:
+        return "Spring"
+    if x in['June','July', 'August']:
+        return "Summer"
+    if x in['September', 'October', 'November']:
+        return "Autum"
+
+
 @st.cache(allow_output_mutation=True)
 def load_data():
     data = pd.read_csv('hotel_bookings.csv')
@@ -37,6 +49,8 @@ def load_data():
     
     country_dist = pd.DataFrame(data['country'].value_counts())
     
+    data['Seasons']=data['arrival_date_month'].apply(season)
+    
     return data, Canceled_reservation, Confirmed_reservation, Resort_hotel, City_hotel, country_dist
 
 df, canceled, confirmed, resort, city, country = load_data()
@@ -50,19 +64,6 @@ City_arrival_month = pd.DataFrame(city['arrival_date_month'].value_counts())
 new_order = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 Resort_arrival_month = Resort_arrival_month.reindex(new_order, axis=0, copy=False)
 City_arrival_month = City_arrival_month.reindex(new_order, axis=0, copy=False)
-
-
-def season(x):
-    if x in ['December','January','February']:
-        return "Winter"
-    if x in['March','April','May']:
-        return "Spring"
-    if x in['June','July', 'August']:
-        return "Summer"
-    if x in['September', 'October', 'November']:
-        return "Autum"
-    
-df['Seasons']=df['arrival_date_month'].apply(season)
 
 
 
