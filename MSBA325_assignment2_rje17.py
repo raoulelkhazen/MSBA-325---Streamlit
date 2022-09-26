@@ -8,9 +8,31 @@ import plotly.express as px
 import streamlit as st
 
 
+def home():
+    st.caption("MSBA325 Assignment 2 - Prepared by Raoul El Khazen")
+    st.markdown("""
+                > ## This dataset was used in the previous Spring semester in the Machine Learning course:
+                - It contains 119,390 observations
+                - 2 types of Hotels: City and Resort
+                - We were building a ML model to predict whether a reservation will be canceled or confirmed
+                
+                >  ## 5 types of Visualizations were applied on this dataset:
+                - Map Visualization
+                - Scatter Plot
+                - Histogram
+                - Pie Chart
+                - Distribution Plot""")
 
+def data_summary():
+    st.header('Explore the Data')
+    df = pd.read_csv('hotel_bookings.csv')
+    if st.checkbox('Show raw data', value=True):
+       st.subheader('Raw data')
+       st.write(df)
+       
+    st.header('Statistics of Dataframe')
+    st.write(df.describe())
 
-df = pd.read_csv('hotel_bookings.csv')
 
 
 df.info()
@@ -69,35 +91,7 @@ st.sidebar.title('Navigation')
 options = st.sidebar.radio('Select what you want to display:', ['Home', 'Data Summary', 'Visualizations'])
 
 
-def home():
-    st.caption("MSBA325 Assignment 2 - Prepared by Raoul El Khazen")
-    st.markdown("""
-                > ## This dataset was used in the previous Spring semester in the Machine Learning course:
-                - It contains 119,390 observations
-                - 2 types of Hotels: City and Resort
-                - We were building a ML model to predict whether a reservation will be canceled or confirmed
-                
-                >  ## 5 types of Visualizations were applied on this dataset:
-                - Map Visualization
-                - Scatter Plot
-                - Histogram
-                - Pie Chart
-                - Distribution Plot""")
 
-
-def data_summary():
-    st.header('Explore the Data')
-    df = pd.read_csv('C:\\Users\\Raoul.Elkhazen\\Desktop\\hotel_bookings.csv')
-    if st.checkbox('Show raw data', value=True):
-       st.subheader('Raw data')
-       st.write(df)
-       
-    st.header('Statistics of Dataframe')
-    st.write(df.describe())
-
-# def data_header():
-#     st.header('Header of Dataframe')
-#     st.write(df.head())
 
 def visualization():
     st.header('Plot of Data')
