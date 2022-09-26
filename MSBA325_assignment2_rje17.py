@@ -8,6 +8,8 @@ import plotly.express as px
 import streamlit as st
 
 
+df = pd.read_csv('hotel_bookings.csv')
+
 def home():
     st.caption("MSBA325 Assignment 2 - Prepared by Raoul El Khazen")
     st.markdown("""
@@ -23,9 +25,9 @@ def home():
                 - Pie Chart
                 - Distribution Plot""")
 
+    
 def data_summary():
     st.header('Explore the Data')
-    df = pd.read_csv('hotel_bookings.csv')
     if st.checkbox('Show raw data', value=True):
        st.subheader('Raw data')
        st.write(df)
@@ -33,7 +35,7 @@ def data_summary():
     st.header('Statistics of Dataframe')
     st.write(df.describe())
 
-df = pd.read_csv('hotel_bookings.csv')
+
 
 df.info()
 df.isna().sum()
