@@ -52,7 +52,7 @@ Resort_arrival_month = Resort_arrival_month.reindex(new_order, axis=0, copy=Fals
 City_arrival_month = City_arrival_month.reindex(new_order, axis=0, copy=False)
 
 
-
+@st.cache
 def season(x):
     if x in ['December','January','February']:
         return "Winter"
