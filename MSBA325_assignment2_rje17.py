@@ -33,7 +33,7 @@ def data_summary():
     st.header('Statistics of Dataframe')
     st.write(df.describe())
 
-
+df = pd.read_csv('hotel_bookings.csv')
 
 df.info()
 df.isna().sum()
