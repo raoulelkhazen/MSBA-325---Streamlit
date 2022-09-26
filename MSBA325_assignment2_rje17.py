@@ -92,7 +92,7 @@ def data_summary():
     st.header('Explore the Data')
     if st.checkbox('Show raw data', value=True):
        st.subheader('Raw data')
-       st.write(df)
+       st.write(df.head())
        
     st.header('Statistics of Dataframe')
     st.write(df.describe())
