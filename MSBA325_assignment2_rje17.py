@@ -42,14 +42,14 @@ def data_summary():
 
 
 
-df.info()
-df.isna().sum()
-df.duplicated().sum()
+# df.info()
+# df.isna().sum()
+# df.duplicated().sum()
 df.drop_duplicates(inplace = True)
 df.dropna(subset=['country', 'children', 'arrival_date_week_number'], axis=0, inplace = True)
 df.drop(columns = ['company', 'agent'], inplace = True)
 df.reset_index(inplace = True, drop = True)
-df.head()
+# df.head()
 
 df['Total Guests'] = df['adults'] + df['children']
 
