@@ -49,13 +49,12 @@ def load_data():
     
     country_dist = pd.DataFrame(data['country'].value_counts())
     
-    data['Seasons']=data['arrival_date_month'].apply(season)
-    
     return data, Canceled_reservation, Confirmed_reservation, Resort_hotel, City_hotel, country_dist
 
 df, canceled, confirmed, resort, city, country = load_data()
 
-
+    
+df['Seasons']=df['arrival_date_month'].apply(season)
 
 Resort_arrival_month = pd.DataFrame(resort['arrival_date_month'].value_counts())
 
