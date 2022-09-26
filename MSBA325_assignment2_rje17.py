@@ -15,7 +15,7 @@ st.title('Hotel Reservation Cancelation')
 
 @st.cache(allow_output_mutation=True)
 def load_data():
-    data = pd.read_csv('C:\\Users\\Raoul.Elkhazen\\Desktop\\hotel_bookings.csv')
+    data = pd.read_csv('hotel_bookings.csv')
     data.info()
     data.isna().sum()
     data.duplicated().sum()
