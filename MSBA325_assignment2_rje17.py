@@ -146,6 +146,7 @@ def visualization():
     fig.update_layout(xaxis_title="lead time", yaxis_title="Distribution")
     st.plotly_chart(fig, use_container_width=True)
     
+    
     st.subheader('Over the Season')
     plot_options = st.selectbox('Select Variable', ['is_canceled', 'adr'])
     y1=df.groupby('Seasons')[plot_options].mean()
