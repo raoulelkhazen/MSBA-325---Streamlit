@@ -8,7 +8,12 @@ import plotly.express as px
 import streamlit as st
 
 
-df = pd.read_csv('hotel_bookings.csv')
+@st.cache(allow_output_mutation=True)
+def load_data():
+    data = pd.read_csv('hotel_bookings.csv')
+    return data
+
+df = load_data()
 
 def home():
     st.caption("MSBA325 Assignment 2 - Prepared by Raoul El Khazen")
