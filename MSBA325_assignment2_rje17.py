@@ -10,7 +10,7 @@ import streamlit as st
 
 
 
-df = pd.read_csv('C:\\Users\\Raoul.Elkhazen\\Desktop\\hotel_bookings.csv')
+df = pd.read_csv('hotel_bookings.csv')
 
 
 df.info()
